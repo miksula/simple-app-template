@@ -1,0 +1,8 @@
+.vscode/*
+!.vscode/extensions.json
+!.vscode/default-settings.jsonc
+
+node_modules
+dist
+
+*.lock

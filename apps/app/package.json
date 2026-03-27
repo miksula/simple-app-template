@@ -1,0 +1,19 @@
+{
+  "name": "app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@packages/router": "workspace:*",
+    "lit": "^3.3.2"
+  },
+  "devDependencies": {
+    "vite": "^8.0.1",
+    "vite-plugin-devtools-json": "^1.0.0"
+  }
+}

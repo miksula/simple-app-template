@@ -1,0 +1,13 @@
+{
+  "name": "simple-app-template",
+  "private": true,
+  "scripts": {
+    "api": "npm run dev -w apps/api",
+    "app": "npm run dev -w apps/app",
+    "website": "npm run dev -w apps/website"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
+}

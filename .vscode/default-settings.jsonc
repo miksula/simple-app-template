@@ -1,0 +1,11 @@
+// Rename to `settings.json` to apply these settings to your workspace.
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "deno.enable": true,
+  "deno.disablePaths": [
+    "node_modules",
+    "dist"
+  ],
+  "editor.defaultFormatter": "denoland.vscode-deno"
+}

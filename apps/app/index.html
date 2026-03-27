@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>app</title>
+
+    <link rel="stylesheet" href="./src/index.css" />
+
+    <script type="module">
+      import "@/my-app.ts";
+
+      import { Router } from "@packages/router";
+      const router = new Router();
+
+      router.get("/", () => {
+        const app = document.createElement("my-app");
+
+        app.innerHTML = `
+          <h1>Welcome to the app!</h1>
+          <p>This is a simple app template.</p>
+        `;
+
+        document.body.appendChild(app);
+      });
+    </script>
+  </head>
+  <body></body>
+</html>
