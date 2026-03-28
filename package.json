@@ -4,7 +4,9 @@
   "scripts": {
     "api": "npm run dev -w apps/api",
     "app": "npm run dev -w apps/app",
-    "website": "npm run dev -w apps/website"
+    "website": "npm run dev -w apps/website",
+    "clear": "sh ./scripts/clear-modules.sh",
+    "pkg": "sh ./scripts/pkg-update.sh"
   },
   "workspaces": [
     "packages/*",
