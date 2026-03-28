@@ -2,6 +2,7 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+  // Static HTML export, see https://nextjs.org/docs/pages/guides/static-exports
   output: "export",
 
   // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
@@ -12,6 +13,11 @@ const nextConfig = {
 
   // Optional: Change the output directory `out` -> `dist`
   distDir: "dist",
+
+  // Workspace root for Turbopack, which is used for development and production builds
+  turbopack: {
+    root: "./../..",
+  },
 };
 
 module.exports = nextConfig;

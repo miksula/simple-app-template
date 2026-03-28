@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@packages/router": "^0.0.0",
+    "@packages/router": "workspace:*",
     "lit": "^3.3.2"
   },
   "devDependencies": {
