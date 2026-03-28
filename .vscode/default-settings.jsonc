@@ -1,5 +1,6 @@
 // Rename to `settings.json` to apply these settings to your workspace.
 {
+  "npm.scriptRunner": "npm",
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
   "deno.enable": true,
