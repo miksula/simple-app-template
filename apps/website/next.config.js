@@ -14,9 +14,10 @@ const nextConfig = {
   // Optional: Change the output directory `out` -> `dist`
   distDir: "dist",
 
-  // Workspace root for Turbopack, which is used for development and production builds
+  // Workspace root for Turbopack, which is used for development and production builds.
+  // Change if 'next' package is not resolved properly in monorepo setups.
   turbopack: {
-    root: "./../..",
+    root: require("path").resolve(__dirname, "../.."),
   },
 };
 
