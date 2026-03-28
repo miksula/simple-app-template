@@ -36,9 +36,7 @@ npm install
 │   └── website/      # Next.js website (static export)
 ├── packages/
 │   └── router/       # Shared router package
-└── scripts/
-    ├── clear-modules.sh   # Remove all node_modules
-    └── pkg-update.sh      # Manipulate a package.json inside workspace
+└── scripts/          # Utility scripts
 ```
 
 ### apps/api
