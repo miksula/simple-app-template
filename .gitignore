@@ -7,3 +7,5 @@ dist
 
 *.lock
 package-lock.json
+
+*.code-workspace
