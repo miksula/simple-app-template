@@ -31,7 +31,7 @@ navigation and state management.
 Since this is a standalone module, you can import it directly into your project.
 
 ```typescript
-import Router, { RouteContext } from "@app/router";
+import Router, { RouteContext } from "@packages/router";
 ```
 
 ## Basic Usage
