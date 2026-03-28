@@ -1,5 +1,5 @@
 import { css, html, LitElement, nothing } from "lit";
-import { Router, type RouteContext } from "@packages/router";
+import { type RouteContext, Router } from "@packages/router";
 
 /**
  * An example element.
@@ -11,7 +11,9 @@ export class MyApp extends LitElement {
   count: number = 0;
   private router = new Router();
   private currentPath = "/";
-  private currentView = html`<p>Loading...</p>`;
+  private currentView = html`
+    <p>Loading...</p>
+  `;
   private userInput = "42";
   private tabInput = "profile";
   private loading = false;
@@ -182,7 +184,10 @@ export class MyApp extends LitElement {
           <h2>User Profile</h2>
           <p><strong>ID:</strong> ${id}</p>
           <p><strong>Tab:</strong> ${tab || "overview"}</p>
-          <p>URL params come from <code>context.param()</code> and query from <code>context.search()</code>.</p>
+          <p>
+            URL params come from <code>context.param()</code> and query from <code
+            >context.search()</code>.
+          </p>
         `;
       })
       .add("/search", (context: RouteContext) => {
@@ -197,7 +202,9 @@ export class MyApp extends LitElement {
       .addAsync("/posts/:id", async (context: RouteContext) => {
         this.loading = true;
         const { id } = context.param() as { id: string };
-        this.currentView = html`<p>Preparing post ${id}...</p>`;
+        this.currentView = html`
+          <p>Preparing post ${id}...</p>
+        `;
         this.requestUpdate();
 
         await new Promise((resolve) => setTimeout(resolve, 900));
@@ -239,17 +246,19 @@ export class MyApp extends LitElement {
   private goToUser = () => {
     const id = this.userInput.trim() || "42";
     const tab = this.tabInput.trim() || "overview";
-    this.router.navigate(`/users/${encodeURIComponent(id)}?tab=${encodeURIComponent(tab)}`);
+    this.router.navigate(
+      `/users/${encodeURIComponent(id)}?tab=${encodeURIComponent(tab)}`,
+    );
   };
 
   private goToSearch = () => {
     const id = this.userInput.trim() || "router";
     this.router.navigate(`/search?q=${encodeURIComponent(id)}&sort=newest`);
-  }
+  };
 
   override render() {
     return html`
-      <main @click=${this.onShellClick}>
+      <main @click="${this.onShellClick}">
         <h1>Router Demo</h1>
 
         <section class="panel">
@@ -266,32 +275,36 @@ export class MyApp extends LitElement {
             <label>
               User ID
               <input
-                .value=${this.userInput}
-                @input=${(e: Event) => {
+                .value="${this.userInput}"
+                @input="${(e: Event) => {
                   this.userInput = (e.target as HTMLInputElement).value;
-                }}
+                }}"
               />
             </label>
             <label>
               User Tab
               <input
-                .value=${this.tabInput}
-                @input=${(e: Event) => {
+                .value="${this.tabInput}"
+                @input="${(e: Event) => {
                   this.tabInput = (e.target as HTMLInputElement).value;
-                }}
+                }}"
               />
             </label>
-            <button @click=${this.goToUser}>Navigate to /users/:id</button>
-            <button @click=${this.goToSearch}>Navigate to /search</button>
+            <button @click="${this.goToUser}">Navigate to /users/:id</button>
+            <button @click="${this.goToSearch}">Navigate to /search</button>
           </div>
 
-          <div class="route-info">Current route: ${this.currentPath || "/"}</div>
+          <div class="route-info">Current route: ${this.currentPath ||
+            "/"}</div>
         </section>
 
         <section class="panel view">
-          ${this.loading ? html`<div class="loading">Loading async route...</div>` : nothing}
-          ${this.currentView}
-          <button class="counter" @click=${this._onClick} part="button">
+          ${this.loading
+            ? html`
+              <div class="loading">Loading async route...</div>
+            `
+            : nothing} ${this.currentView}
+          <button class="counter" @click="${this._onClick}" part="button">
             Local counter: ${this.count}
           </button>
         </section>
